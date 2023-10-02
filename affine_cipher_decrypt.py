@@ -1,4 +1,4 @@
-STRING_TO_DECRYPT = "LIYGTOGDPOAUPDFQNVPVDAQV"
+STRING_TO_DECRYPT = "CECEKGIKCPG PKYJTPMP"
 
 
 def inverse(key):
@@ -19,7 +19,10 @@ def main():
 
             decrypted_string = ""
             for char in STRING_TO_DECRYPT:
-                numeric_char = ord(char) - 65
+                if char == " ":
+                    numeric_char = 26
+                else:
+                    numeric_char = ord(char) - 65
                 decrypted_char = (inverted_key1 * numeric_char + inverted_key2) % 27
                 if decrypted_char == 26:
                     decrypted_string += " "
